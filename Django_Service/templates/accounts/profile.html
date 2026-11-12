@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Мій профіль{% endblock %}
+
+{% block content %}
+    <h2>Вітаємо, {{ user.username }}!</h2>
+    <p>Це ваша особиста сторінка. Тут незабаром з'являться ваші заявки.</p>
+    <p>Ваш email: {{ user.email|default:"не вказано" }}</p>
+    <p><strong>Ваша роль:</strong> {{ user.userprofile.get_role_display }}</p>
+
+
+    <a href="{% url 'edit_profile' %}" class="btn" style="background: #28a745;">Редагувати профіль</a>
+    <br><br>
+    
+    <a href="{% url 'logout' %}" class="btn btn-danger">Вийти з акаунту</a>
+{% endblock %}
+

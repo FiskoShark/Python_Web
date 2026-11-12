@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Реєстрація{% endblock %}
+
+{% block content %}
+    <h2>Створити акаунт</h2>
+    <form method="post">
+        {% csrf_token %} <!-- Обов'язковий захист Django -->
+        
+        <!-- Виводимо поля форми -->
+        {{ form.as_p }} 
+        
+        <button type="submit" class="btn">Зареєструватися</button>
+    </form>
+    <p>Вже маєте акаунт? <a href="{% url 'login' %}">Увійдіть</a></p>
+{% endblock %}
+
+
